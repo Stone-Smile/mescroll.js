@@ -4,7 +4,8 @@
 
 1.下载并引用mescroll插件的css js  
 `<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">`  
-`<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`
+`<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`  
+
 2. 需要满足下面的布局结构 :  
 ```
     <div id="mescroll" class="mescroll"> //id可以改,而"mescroll"的class不能删  
@@ -21,7 +22,7 @@
         bottom: 0;
         height: auto; /*如设置bottom:50px,则需height:auto才能生效*/
     }
- ```
+ ```  
  4. 创建mescroll对象 :  
   ```
       var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
