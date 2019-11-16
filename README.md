@@ -3,8 +3,8 @@
 官网说明： http://www.mescroll.com/
 
 1.下载并引用mescroll插件的css js
-<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">
-<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>
+`<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">`
+`<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`
 
 2. 需要满足下面的布局结构 :
     <div id="mescroll" class="mescroll"> //id可以改,而"mescroll"的class不能删
