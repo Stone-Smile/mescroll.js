@@ -2,7 +2,7 @@
 
 官网说明： http://www.mescroll.com/
 
-1.下载并引用mescroll插件的css js
+1.下载并引用mescroll插件的css js  
 `<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">`
 `<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`
 
