@@ -3,26 +3,26 @@
 官网说明： http://www.mescroll.com/
 
 1.下载并引用mescroll插件的css js  
-`<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">`
-`<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`
+`<link rel="stylesheet" href="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.css">  
+<script src="https://unpkg.com/mescroll.js@1.4.1/mescroll.min.js" charset="utf-8"></script>`
 
-2. 需要满足下面的布局结构 :
-    <div id="mescroll" class="mescroll"> //id可以改,而"mescroll"的class不能删
-        <div> //这个div不能删,否则上拉加载的布局会错位.(可以改成ul或者其他容器标签)
-             //内容...
-         </div>
-    </div>
+2. 需要满足下面的布局结构 :  
+    `<div id="mescroll" class="mescroll"> //id可以改,而"mescroll"的class不能删  
+        <div> //这个div不能删,否则上拉加载的布局会错位.(可以改成ul或者其他容器标签)  
+             //内容...  
+         </div>  
+    </div>`
     
-3. 固定mescroll的div高度. 推荐通过定位的方式,简单快捷（当然也可以用其他方法）:
-    .mescroll{
+3. 固定mescroll的div高度. 推荐通过定位的方式,简单快捷（当然也可以用其他方法）:  
+    `.mescroll{
         position: fixed;
         top: 44px;
         bottom: 0;
         height: auto; /*如设置bottom:50px,则需height:auto才能生效*/
-    }
+    }`
     
-  4. 创建mescroll对象 :
-      var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
+  4. 创建mescroll对象 :  
+      `var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
 	       		//如果您的下拉刷新是重置列表数据,那么down完全可以不用配置,具体用法参考第一个基础案例
 	       		//解析: down.callback默认调用mescroll.resetUpScroll(),而resetUpScroll会将page.num=1,再触发up.callback
         down: {
@@ -55,10 +55,10 @@
                     attr: 'imgurl' // 标签中网络图的属性名 : <img imgurl='网络图  src='占位图''/>
                 }
         }
-      });
+      });`
       
-   5. 处理回调 :
-   //上拉加载的回调 page = {num:1, size:10}; num:当前页 默认从1开始, size:每页数据条数,默认10
+   5. 处理回调 :  
+   `//上拉加载的回调 page = {num:1, size:10}; num:当前页 默认从1开始, size:每页数据条数,默认10
     function upCallback(page) {
         var pageNum = page.num; // 页码, 默认从1开始 如何修改从0开始 ?
         var pageSize = page.size; // 页长, 默认每页10条
@@ -107,5 +107,5 @@
                 mescroll.endErr();
             }
         });
-    }
+    }`
     
