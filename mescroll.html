@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mescrollDemo</title>
+    <link rel="stylesheet" href="https://img.ybl-group.com/mescroll/1.4.0/mescroll.min.css">
+</head>
+<style>
+    html,
+    body,
+    div {
+        padding: 0;
+        margin: 0;
+    }
+
+    .mescroll {
+        left: 0;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        /*如设置bottom:50px,则需height:auto才能生效*/
+    }
+
+    .name {
+        height: 4rem;
+        line-height: 4rem;
+        text-align: center;
+        font-size: 1rem;
+        color: #333;
+        border-bottom: 1px solid #eee;
+    }
+</style>
+
+<body>
+    <div id="all_report">
+        <div id="mescroll" class="mescroll">
+            <div class="doctor_report">
+            </div>
+        </div>
+    </div>
+    <!-- js部分 -->
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="https://img.ybl-group.com/mescroll/1.4.0/mescroll.min.js" charset="utf-8"></script>
+    <script>   
+        $(function () {
+            //创建MeScroll对象
+            var mescroll = new MeScroll("mescroll", {
+                up: {
+                    auto: true,
+                    isBounce: false, //如果为true，某些ios手机会有bug
+                    callback: upCallback,
+                    htmlNodata: '<p class="upwarp-nodata">-- 结束 --</p>',
+                },
+                down: {
+                    use: false//默认为true，不使用的时候必须加上
+                }
+            });
+            function upCallback(page) {
+                console.log(page.num + page.size);//默认page=1，size=10，每次调用page+1
+                //延时一秒,模拟ajax。
+                setTimeout(function () {
+                    var success = true;//ajax成功的回调
+                    if (success) {
+                        var data = { total: 30, data: [{ "name": "name1" }, { "name": "name2" }, { "name": "name3" }, { "name": "name4" }, { "name": "name5" }, { "name": "name6" }, { "name": "name7" }, { "name": "name8" }, { "name": "name9" }, { "name": "name10" }] }
+                        for (var i in data.data) {
+                            $(".doctor_report").append('<div class="name">' + data.data[i].name + '</div>');
+                        }
+                        mescroll.endSuccess(data.data.length);
+                        mescroll.endBySize(data.data.length, data.total);//满足条件后不再触发上拉刷新
+                    } else {
+                        mescroll.endErr();
+                    }
+                }, 1000)
+            }
+        })
+    </script>
+</body>
+</html>
